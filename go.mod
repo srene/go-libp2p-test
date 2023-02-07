@@ -1,4 +1,4 @@
-module github.com/libp2p/go-libp2p
+module github.com/srene/go-libp2p
 
 go 1.18
 
@@ -116,5 +116,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/blake3 v1.1.7 // indirect
 )
+
+replace github.com/libp2p/go-libp2p => github.com/srene/go-libp2p v0.0.0-20230207083946-860a2a64580f
 
 replace github.com/multiformats/go-multiaddr-fmt => github.com/srene/go-multiaddr-fmt v0.0.0-20230207123103-e4cc1bf3a8f8
