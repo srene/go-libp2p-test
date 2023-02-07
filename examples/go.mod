@@ -1,4 +1,4 @@
-module github.com/libp2p/go-libp2p/examples
+module github.com/srene/go-libp2p/examples
 
 go 1.18
 
@@ -112,6 +112,6 @@ require (
 	nhooyr.io/websocket v1.8.7 // indirect
 )
 
-replace github.com/libp2p/go-libp2p => /home/sergi/workspace/ipfs/go-libp2p-srene
+replace github.com/libp2p/go-libp2p => github.com/srene/go-libp2p
 
 replace github.com/multiformats/go-multiaddr-fmt => github.com/srene/go-multiaddr-fmt v0.0.0-20230207123103-e4cc1bf3a8f8
