@@ -9,6 +9,7 @@ require (
 	github.com/ipfs/go-log/v2 v2.5.1
 	github.com/libp2p/go-libp2p v0.24.0
 	github.com/libp2p/go-libp2p-kad-dht v0.19.0
+	github.com/libp2p/go-libp2p/examples v0.0.0-20230207035812-313b080ea4e2
 	github.com/multiformats/go-multiaddr v0.8.0
 )
 
@@ -30,6 +31,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/gopacket v1.1.19 // indirect
 	github.com/google/pprof v0.0.0-20221203041831-ce31453925ec // indirect
+	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
@@ -109,9 +111,8 @@ require (
 	golang.org/x/tools v0.3.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	lukechampine.com/blake3 v1.1.7 // indirect
-	nhooyr.io/websocket v1.8.7 // indirect
 )
 
-replace github.com/libp2p/go-libp2p => github.com/srene/go-libp2p
+replace github.com/libp2p/go-libp2p => github.com/srene/go-libp2p v0.0.0-20230207083946-860a2a64580f
 
 replace github.com/multiformats/go-multiaddr-fmt => github.com/srene/go-multiaddr-fmt v0.0.0-20230207123103-e4cc1bf3a8f8
