@@ -74,7 +74,8 @@ func makeBasicHost(listenPort int, insecure bool, randseed int64) (host.Host, er
 	}
 
 	opts := []libp2p.Option{
-		libp2p.ListenAddrStrings(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d", listenPort)),
+		libp2p.ListenAddrStrings(fmt.Sprintf("/ip6zone/eno1/ip6/fe80::7865:ef0a:a06b:93ff/tcp/%d", listenPort)),
+		//libp2p.ListenAddrStrings(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d", listenPort)),
 		libp2p.Identity(priv),
 		libp2p.DisableRelay(),
 	}

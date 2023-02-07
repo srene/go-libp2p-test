@@ -49,9 +49,9 @@ require (
 	github.com/stretchr/testify v1.8.1
 	go.uber.org/fx v1.18.2
 	go.uber.org/goleak v1.1.12
-	golang.org/x/crypto v0.4.0
+	golang.org/x/crypto v0.5.0
 	golang.org/x/sync v0.1.0
-	golang.org/x/sys v0.3.0
+	golang.org/x/sys v0.5.0
 	golang.org/x/tools v0.3.0
 	google.golang.org/protobuf v1.28.1
 	nhooyr.io/websocket v1.8.7
@@ -82,7 +82,7 @@ require (
 	github.com/huin/goupnp v1.0.3 // indirect
 	github.com/jackpal/go-nat-pmp v1.0.2 // indirect
 	github.com/jbenet/goprocess v0.1.4 // indirect
-	github.com/klauspost/cpuid/v2 v2.2.1 // indirect
+	github.com/klauspost/cpuid/v2 v2.2.3 // indirect
 	github.com/koron/go-ssdp v0.0.3 // indirect
 	github.com/libp2p/go-cidranger v1.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
@@ -110,8 +110,12 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/exp v0.0.0-20221205204356-47842c84f3db // indirect
 	golang.org/x/mod v0.7.0 // indirect
-	golang.org/x/net v0.4.0 // indirect
-	golang.org/x/text v0.5.0 // indirect
+	golang.org/x/net v0.5.0 // indirect
+	golang.org/x/text v0.6.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/blake3 v1.1.7 // indirect
 )
+
+replace github.com/libp2p/go-libp2p => github.com/srene/go-libp2p v0.24.2
+
+replace github.com/multiformats/go-multiaddr-fmt => github.com/srene/go-multiaddr-fmt v0.0.0-20230207123103-e4cc1bf3a8f8

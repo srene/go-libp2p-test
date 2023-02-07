@@ -14,7 +14,6 @@ import (
 	"github.com/libp2p/go-libp2p/core/transport"
 	ma "github.com/multiformats/go-multiaddr"
 	madns "github.com/multiformats/go-multiaddr-dns"
-	manet "github.com/multiformats/go-multiaddr/net"
 	"github.com/quic-go/quic-go"
 )
 
@@ -331,6 +330,9 @@ func (s *Swarm) addrsForDial(ctx context.Context, p peer.ID) ([]ma.Multiaddr, er
 	}
 
 	goodAddrs := s.filterKnownUndialables(p, resolved)
+
+	fmt.Println(goodAddrs)
+
 	if forceDirect, _ := network.GetForceDirectDial(ctx); forceDirect {
 		goodAddrs = ma.FilterAddrs(goodAddrs, s.nonProxyAddr)
 	}
@@ -441,18 +443,20 @@ func (s *Swarm) filterKnownUndialables(p peer.ID, addrs []ma.Multiaddr) []ma.Mul
 	for _, addr := range lisAddrs {
 		protos := addr.Protocols()
 		// we're only sure about filtering out /ip4 and /ip6 addresses, so far
-		if protos[0].Code == ma.P_IP4 || protos[0].Code == ma.P_IP6 {
+		if protos[0].Code == ma.P_IP4 || protos[0].Code == ma.P_IP6 || protos[0].Code == ma.P_IP6ZONE {
+			//if protos[0].Code == ma.P_IP4 || protos[0].Code == ma.P_IP6 {
 			ourAddrs = append(ourAddrs, addr)
 		}
 	}
 
+	fmt.Println(ourAddrs)
 	return maybeRemoveWebTransportAddrs(
 		maybeRemoveQUICDraft29(
 			ma.FilterAddrs(addrs,
 				func(addr ma.Multiaddr) bool { return !ma.Contains(ourAddrs, addr) },
 				s.canDial,
 				// TODO: Consider allowing link-local addresses
-				func(addr ma.Multiaddr) bool { return !manet.IsIP6LinkLocal(addr) },
+				//func(addr ma.Multiaddr) bool { return !manet.IsIP6LinkLocal(addr) },
 				func(addr ma.Multiaddr) bool {
 					return s.gater == nil || s.gater.InterceptAddrDial(p, addr)
 				},
