@@ -2,6 +2,7 @@ package util
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/libp2p/go-libp2p/core/discovery"
@@ -32,8 +33,10 @@ func FindPeers(ctx context.Context, d discovery.Discoverer, ns string, opts ...d
 func Advertise(ctx context.Context, a discovery.Advertiser, ns string, opts ...discovery.Option) {
 	go func() {
 		for {
+			fmt.Println("Advertising ", ns)
 			ttl, err := a.Advertise(ctx, ns, opts...)
 			if err != nil {
+				fmt.Println("Error Advertising ", ns, err.Error())
 				log.Debugf("Error advertising %s: %s", ns, err.Error())
 				if ctx.Err() != nil {
 					return
